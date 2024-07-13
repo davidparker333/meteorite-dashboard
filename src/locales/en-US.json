@@ -1,0 +1,10 @@
+{
+  "numOfMeteorites": "Num of Meteorites",
+  "pounds": "lbs",
+  "summary": "Summary",
+  "totalMass": "Total Mass",
+  "totalMeteorites": "Total Meteorites",
+  "views": {
+    "dashboard": "Dashboard"
+  }
+}
