@@ -1,6 +1,6 @@
 <template>
-  <div class="dashboard mt-12">
-    <HeroCard :title="$t('summary')">
+  <div class="dashboard mt-12 flex flex-wrap">
+    <Card :title="$t('summary')" class="w-72 h-80">
       <div class="card-content-wrapper flex">
         <div class="flex flex-wrap">
           <div class="flex flex-col w-full pb-8">
@@ -12,16 +12,18 @@
             <div class="text-4xl">{{ meteoriteStore.totalMass }} {{ $t('pounds') }}</div>
           </div>
         </div>
-        <div class="meteorite-chart">
-          <BasicChart
-            chart-type="bar"
-            :series="chartData"
-            :y-axis-title="$t('numOfMeteorites')"
-            :categories="chartCategories"
-          />
-        </div>
       </div>
-    </HeroCard>
+    </Card>
+    <Card class="flex-grow h-80">
+      <div class="meteorite-chart">
+        <BasicChart
+          chart-type="bar"
+          :series="chartData"
+          :y-axis-title="$t('numOfMeteorites')"
+          :categories="chartCategories"
+        />
+      </div>
+    </Card>
   </div>
 </template>
 
@@ -29,7 +31,7 @@
 import { onMounted, computed, Ref } from 'vue';
 import { useNavStore } from '@/stores/nav';
 import { useMeteoriteStore } from '@/stores/meteorite';
-import HeroCard from '@/components/hero-card.vue';
+import Card from '@/components/card.vue';
 import BasicChart from '@/components/basic-chart.vue';
 import type Meteorite from '@/types/meteorite';
 

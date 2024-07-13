@@ -5,7 +5,10 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue';
+import { computed, watch } from 'vue';
+import { useNavStore } from '@/stores/nav';
+
+const navStore = useNavStore();
 
 const props = defineProps({
   series: {
@@ -35,22 +38,57 @@ const props = defineProps({
 });
 
 const options = computed(() => {
+  const dark = localStorage.getItem('theme') === 'dark';
   return {
     chart: {
-      type: props.chartType
+      type: props.chartType,
+      backgroundColor: 'transparent',
+      height: 250
     },
     title: {
       text: props.title
     },
     xAxis: {
-      categories: props.categories
+      categories: props.categories,
+      labels: {
+        style: {
+          color: dark ? '#fff' : '#000'
+        }
+      }
     },
     yAxis: {
       title: {
-        text: props.yAxisTitle
+        text: props.yAxisTitle,
+        style: {
+          color: dark ? '#fff' : '#000'
+        }
+      },
+      labels: {
+        style: {
+          color: dark ? '#fff' : '#000'
+        }
       }
     },
-    series: [{ data: props.series }]
+    series: [{ data: props.series, showInLegend: false }]
   };
 });
+
+watch(
+  () => navStore.getTheme,
+  () => {
+    // TODO: make this work
+    const chart = document.querySelector('.highcharts-container');
+    if (chart) {
+      if (navStore.getTheme === 'dark') {
+        chart.classList.add('highcharts-dark');
+      } else {
+        chart.classList.remove('highcharts-dark');
+      }
+    }
+  }
+);
 </script>
+
+<style scoped>
+@import 'https://code.highcharts.com/dashboards/css/dashboards.css';
+</style>

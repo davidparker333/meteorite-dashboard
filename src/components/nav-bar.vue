@@ -9,6 +9,7 @@
         data-toggle-theme="light,dark"
         data-act-class="ACTIVECLASS"
         :checked="isDarkMode"
+        @click="navStore.toggleTheme()"
       />
       <font-awesome-icon :icon="['far', 'moon']" class="ml-2" />
     </div>
