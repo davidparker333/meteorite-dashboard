@@ -8,7 +8,7 @@
         class="toggle"
         data-toggle-theme="light,dark"
         data-act-class="ACTIVECLASS"
-        :checked="isDarkMode"
+        :checked="navStore.isDark"
         @click="navStore.toggleTheme()"
       />
       <font-awesome-icon :icon="['far', 'moon']" class="ml-2" />
@@ -22,11 +22,15 @@ import { themeChange } from 'theme-change';
 import { useNavStore } from '@/stores/nav';
 
 const navStore = useNavStore();
-const isDarkMode: Ref = ref(false);
 
 onMounted(() => {
   // Initialize theme
   themeChange(false);
-  isDarkMode.value = localStorage.getItem('theme') === 'dark';
+  const theme = localStorage.getItem('theme');
+  if (!theme) {
+    // First time user - set the default
+    localStorage.setItem('theme', 'dark');
+    navStore.theme = 'dark';
+  }
 });
 </script>

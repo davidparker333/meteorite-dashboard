@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard mt-12 flex flex-wrap">
-    <Card :title="$t('summary')" class="w-72 h-80">
+    <Card :title="$t('summary')" class="md:w-72 sm:w-full h-80">
       <div class="card-content-wrapper flex">
         <div class="flex flex-wrap">
           <div class="flex flex-col w-full pb-8">
