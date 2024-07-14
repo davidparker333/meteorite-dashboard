@@ -27,7 +27,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, Ref } from 'vue';
+import { computed, type Ref } from 'vue';
 import { useMeteoriteStore } from '@/stores/meteorite';
 
 const props = defineProps({

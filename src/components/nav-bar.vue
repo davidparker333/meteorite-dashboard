@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref, Ref } from 'vue';
+import { onMounted } from 'vue';
 import { themeChange } from 'theme-change';
 import { useNavStore } from '@/stores/nav';
 

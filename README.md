@@ -1,6 +1,10 @@
 # meteorite-dashboard
 
-This template should help get you started developing with Vue 3 in Vite.
+This meteorite dashboard visualizes data from the NASA meteorite dataset (https://data.nasa.gov/resource/y77d-th95.json)
+and organizes it into a chart and searchable table. The table supports pagination, search, and favorites which
+persist across session.
+
+Running this project locally only requires installing dependencies and running with `yarn dev`. Have fun! :o)
 
 ## Recommended IDE Setup
 
@@ -30,12 +34,6 @@ yarn dev
 
 ```sh
 yarn build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-yarn test:unit
 ```
 
 ### Lint with [ESLint](https://eslint.org/)

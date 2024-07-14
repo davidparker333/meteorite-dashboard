@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, watch } from 'vue';
+import { computed, watch, type Ref } from 'vue';
 import { useNavStore } from '@/stores/nav';
 
 const navStore = useNavStore();
@@ -37,7 +37,7 @@ const props = defineProps({
   }
 });
 
-const options = computed(() => {
+const options: Ref = computed(() => {
   return {
     chart: {
       type: props.chartType,

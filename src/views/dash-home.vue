@@ -34,7 +34,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, computed, Ref } from 'vue';
+import { onMounted, computed, type Ref } from 'vue';
 import { useNavStore } from '@/stores/nav';
 import { useMeteoriteStore } from '@/stores/meteorite';
 import Card from '@/components/card.vue';
