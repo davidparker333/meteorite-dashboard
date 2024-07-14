@@ -30,7 +30,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { Meteorite } from '@/types/meteorite';
+import type Meteorite from '@/types/meteorite';
 import MeteoriteRow from '@/components/meteorite-row.vue';
 
 defineProps({

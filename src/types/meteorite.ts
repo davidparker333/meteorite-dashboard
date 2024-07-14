@@ -2,13 +2,13 @@ export default interface Meteorite {
   id: string;
   name: string;
   nametype: string;
-  mass: number;
-  year: string;
+  mass?: string;
+  year?: string;
   fall: string;
-  reclat: number;
-  reclong: number;
-  geolocation: {
+  reclat?: string;
+  reclong?: string;
+  geolocation?: {
     type: string;
-    coordinates: number[];
+    coordinates?: number[];
   };
 }

@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import data from '@/static/data.json';
-import type { Meteorite } from '@/types';
+import type Meteorite from '@/types/meteorite';
 
 export const useMeteoriteStore = defineStore('meteorite', {
   state: () => ({
@@ -14,7 +14,7 @@ export const useMeteoriteStore = defineStore('meteorite', {
     totalMass: (state): string => {
       return state.data
         .reduce((acc: number, curr: Meteorite) => {
-          return acc + parseInt(curr.mass || 0, 10);
+          return acc + parseInt(curr.mass || '0', 10);
         }, 0)
         .toLocaleString();
     },
