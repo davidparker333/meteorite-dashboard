@@ -1,10 +1,25 @@
 {
+  "all": "All Meteorites",
+  "favorites": "Favorite | Favorites",
+  "fell": "Fell?",
+  "id": "ID",
+  "mass": "Mass",
+  "name": "Name",
+  "nextPage": "Next",
+  "noResults": "No results found",
+  "noFavorites": "No favorites yet! Add some using the checkboxes below",
   "numOfMeteorites": "Num of Meteorites",
   "pounds": "lbs",
+  "previousPage": "Previous",
+  "recclass": "Class",
+  "remove": "Remove",
+  "search": "Search by name or ID",
   "summary": "Summary",
   "totalMass": "Total Mass",
   "totalMeteorites": "Total Meteorites",
+  "unknown": "Unknown",
   "views": {
     "dashboard": "Dashboard"
-  }
+  },
+  "year": "Year"
 }

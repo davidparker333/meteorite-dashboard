@@ -24,6 +24,12 @@
         />
       </div>
     </Card>
+    <Card :title="$tc('favorites', 2)" class="w-full max-h-96 overflow-x-auto">
+      <FavoriteMeteorites />
+    </Card>
+    <Card :title="$t('all')" class="w-full overflow-x-auto">
+      <MeteoriteList />
+    </Card>
   </div>
 </template>
 
@@ -33,7 +39,8 @@ import { useNavStore } from '@/stores/nav';
 import { useMeteoriteStore } from '@/stores/meteorite';
 import Card from '@/components/card.vue';
 import BasicChart from '@/components/basic-chart.vue';
-import type Meteorite from '@/types/meteorite';
+import MeteoriteList from '@/components/meteorite-list.vue';
+import FavoriteMeteorites from '@/components/favorite-meteorites.vue';
 
 interface ChartData {
   name: string;
@@ -48,7 +55,7 @@ const chartData: Ref<ChartData[]> = computed(() => {
    * Count meteorites by decade
    * @returns {Array} - Array of objects with decade and count for use in Highcharts
    */
-  const decadeCounts = meteoriteStore.data.reduce((acc: Object, meteorite: Meteorite) => {
+  const decadeCounts: any = meteoriteStore.data.reduce((acc: any, meteorite: any) => {
     const year = new Date(meteorite.year).getFullYear();
     // Only grab meteorites from the modern-ish era
     if (year >= 1900) {

@@ -38,7 +38,6 @@ const props = defineProps({
 });
 
 const options = computed(() => {
-  const dark = localStorage.getItem('theme') === 'dark';
   return {
     chart: {
       type: props.chartType,
@@ -52,7 +51,7 @@ const options = computed(() => {
       categories: props.categories,
       labels: {
         style: {
-          color: dark ? '#fff' : '#000'
+          color: navStore.isDark ? '#fff' : '#000'
         }
       }
     },
@@ -60,12 +59,12 @@ const options = computed(() => {
       title: {
         text: props.yAxisTitle,
         style: {
-          color: dark ? '#fff' : '#000'
+          color: navStore.isDark ? '#fff' : '#000'
         }
       },
       labels: {
         style: {
-          color: dark ? '#fff' : '#000'
+          color: navStore.isDark ? '#fff' : '#000'
         }
       }
     },
@@ -76,10 +75,11 @@ const options = computed(() => {
 watch(
   () => navStore.getTheme,
   () => {
-    // TODO: make this work
+    // Add or remove dark mode class on the highcharts instance
+    // https://www.highcharts.com/docs/chart-design-and-style/style-by-css
     const chart = document.querySelector('.highcharts-container');
     if (chart) {
-      if (navStore.getTheme === 'dark') {
+      if (navStore.isDark) {
         chart.classList.add('highcharts-dark');
       } else {
         chart.classList.remove('highcharts-dark');

@@ -7,7 +7,8 @@ export const useNavStore = defineStore('nav', {
   }),
   getters: {
     getActiveView: (state) => state.activeView,
-    getTheme: (state) => state.theme
+    getTheme: (state) => state.theme,
+    isDark: (state) => state.theme === 'dark'
   },
   actions: {
     setActiveView(view: string) {
